@@ -117,8 +117,8 @@ var(age)
 sd(age)
 range(age)
 IQR(age)
-quantile(age, 0.25) # first quantile
-quantile(age, 0.75) # third quantile
+quantile(age, 0.25) # first quartile
+quantile(age, 0.75) # third quartile
 ```
 
 ```{r Summary of age}
@@ -188,6 +188,7 @@ write_csv(my.data,
 ```{r Importing dataset, message=FALSE, warning=FALSE}
 data <- read_csv("ProjectData.csv")
 ```
+
 ## Inspecting the data
 
 ```{r Data table}
@@ -226,7 +227,8 @@ data %>%
 ### Side-effect count
 
 ```{r Counting side-effects}
-data %>% group_by(SideEffects) %>% 
+data %>% 
+  group_by(SideEffects) %>% 
   summarise(count = n())
 ```
 
